@@ -148,7 +148,10 @@ License MIT
     // Custom selectors $('form:dirty')
     $.extend($.expr[":"], {
         dirty: function (a) {
-            return $(a).not(':dirtyignored').hasClass($.DirtyForms.dirtyClass);
+            if (!$(a).hasClass($.DirtyForms.dirtyClass)) {
+                return false;
+            }
+            return $(a).not(':dirtyignored').length > 0;
         },
         dirtylistening: function (a) {
             return $(a).hasClass($.DirtyForms.listeningClass);
