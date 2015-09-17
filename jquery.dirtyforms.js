@@ -151,7 +151,7 @@ License MIT
             if (!$(a).hasClass($.DirtyForms.dirtyClass)) {
                 return false;
             }
-            return $(a).not(':dirtyignored').length > 0;
+            return $(a).not(':dirtyignored').hasClass($.DirtyForms.dirtyClass);
         },
         dirtylistening: function (a) {
             return $(a).hasClass($.DirtyForms.listeningClass);
